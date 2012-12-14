@@ -1,0 +1,53 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET  /                    controllers.Application.index()
+GET  /login               controllers.Application.login()
+GET  /logout              controllers.Application.logout()
+POST /enter               controllers.Application.enter()
+
+
+# Dashboard
+GET  /dashboard           controllers.Dashboard.index()
+POST /dashboard/open      controllers.Dashboard.open()
+
+
+# Users
+GET  /form/user           controllers.Users.registerUser()
+GET  /users               controllers.Users.allUsers()
+POST /user                controllers.Users.createUser()
+
+# Chats
+GET  /form/chat           controllers.Chats.registerChat()
+GET  /chats               controllers.Chats.allChats()
+POST /chat                controllers.Chats.createChat()
+GET  /chatroom            controllers.Chats.loadChat()
+POST /chat/:chat/image    controllers.Chats.receiveImage(chat:Long)
+
+GET /real/chats/:ids      controllers.Chats.chatsStream(ids:String, timestamp:Long)
+
+#Real
+GET /real/test            controllers.Real.so_web()
+
+
+# Content
+GET /chat/images/:imageId controllers.Content.getImage(imageId:Long)
+GET /content/atom/*emails controllers.Content.atom(emails:String)
+
+
+# WS
+GET /ws/tw/tag/:q         controllers.Twitter.searchTag(q:String)
+GET /ws/tw/mentions/:user controllers.Twitter.mentioning(user:String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET /assets/*file         controllers.Assets.at(path="/public", file)
+
+GET  /jsroutes            controllers.Application.js()
+
+
+# JDBC
+GET /test/page            controllers.JDBC.page
+GET /test/create          controllers.JDBC.table
+GET /test/:value          controllers.JDBC.test(value:String)

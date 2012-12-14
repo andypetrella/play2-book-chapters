@@ -1,0 +1,23 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="alternate" type="application/atom+xml" href="http://localhost:9000/content/atom/me@@home.org/thief@@hood.com/">
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/book.css")">
+
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        @Option(session().get("email")).map {e=>
+            <h1>Connected as @e</h1>
+        }
+        @content
+    </body>
+</html>

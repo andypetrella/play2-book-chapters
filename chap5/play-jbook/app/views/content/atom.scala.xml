@@ -1,0 +1,22 @@
+@(chats: Map[User, Set[Chat]], users:List[User])<?xml version="1.0" encoding="utf-8"?>
+@import org.joda.time.DateTime.now
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chat Stream</title>
+  <updated>@now</updated>
+  <author>
+    <name>Noootsab</name>
+  </author>
+  <id>@routes.Content.atom(users.map{_.email}.mkString("/")).url</id>
+@chats.map { case (u, chatList) =>
+  @chatList.toSeq.sortBy(_.occurrence).map { c =>
+  <entry>
+    <id>@{routes.Content.atom(users.map{_.email}.mkString("/")).absoluteURL(request())}/entry/@u.email/@c.date/@c.occurrence    </id>
+    <title>Chat for @u.email @@ @c.date [@c.occurrence]</title>
+    <updated>@c.date</updated>
+    <summary>
+      @c.items.sortBy(_.timestamp.toDateTimeToday.toDate).map(i =>i.user.email + " : " + i.message) .mkString("<br/>")
+    </summary>
+  </entry>
+  }
+}
+</feed>

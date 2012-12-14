@@ -1,0 +1,10 @@
+@(chatForm: Form[Chat])
+
+@mainExtended("Create new Chat") {
+  @helper.form(action=routes.Chats.createChat) {
+    @helper.inputText(chatForm("topic"))
+    <input type="hidden" name="date" value="@org.joda.time.LocalDate.now"/>
+    <input type="hidden" name="occurrence" value="@chatForm("occurrence").value"/>
+    <input type="button" value="Create"/>
+  }
+}

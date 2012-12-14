@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET  /                    controllers.Application.index()
+GET  /login               controllers.Application.login()
+GET  /logout              controllers.Application.logout()
+POST /enter               controllers.Application.enter()
+
+# Users
+GET  /form/user           controllers.Users.registerUser()
+GET  /users               controllers.Users.allUsers()
+POST /user                controllers.Users.createUser()
+
+# Chats
+GET  /form/chat           controllers.Chats.registerChat()
+POST /chat                controllers.Chats.createChat()
+GET  /chats               controllers.Chats.allChats()
+GET  /chatroom            controllers.Chats.loadChat()
+
+POST /chat/:chat/message  controllers.Chats.talk(chat:Long)
+POST /chat/:chat/image    controllers.Chats.receiveImage(chat:Long)
+
+
+# Content
+GET /chat/images/:imageId controllers.Content.getImage(imageId:Long)
+GET /content/atom/*emails controllers.Content.atom(emails:String)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

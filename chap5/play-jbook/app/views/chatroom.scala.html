@@ -1,0 +1,50 @@
+@(chat:Chat, item:Form[Item], sendImage:Form[Image])
+
+@import helper._
+
+@main("Chat Room : " + chat.internalId) {
+<h1>@chat.topic</h1>
+
+  <div style="float:left;width:500px;">
+    <h2>So far...</h2>
+    <ul>
+    @chat.items.map { i =>
+      @listItem(i)
+    }
+    </ul>
+  </div>
+
+  <div style="margin-left:510px;">
+    <h2>Attached Images</h2>
+    <ul>
+    @chat.images.map { i =>
+      <li>@i.caption : <img src="@routes.Content.getImage(i.internalId)" alt="@i.caption" title="@i.caption"/></li>
+    }
+    </ul>
+  </div>
+
+  <div style="clear:both"/>
+
+  <hr/>
+
+  <div style="float:left;width:500px;">
+    <h3>React</h3>
+    @form(action=routes.Chats.talk(chat.internalId)) {
+      <input type="hidden" name="timestamp" value="@org.joda.time.LocalTime.now"/>
+      @inputText(item("message"))
+      <button>send</button>
+
+    }
+  </div>
+
+  <div style="margin-left:510px;">
+    <h3>Attach an image</h3>
+    @form(action=routes.Chats.receiveImage(chat.internalId), 'enctype -> "multipart/form-data") {
+      @inputText(sendImage("caption"))
+
+      @inputFile(sendImage("pic"))
+
+      <button>Send</button>
+    }
+  </div>
+}

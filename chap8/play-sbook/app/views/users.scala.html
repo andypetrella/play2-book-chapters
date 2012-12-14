@@ -1,0 +1,7 @@
+@(users:Seq[User])(implicit request:RequestHeader)
+
+@main("All users") {
+    @users.map { u =>
+        @showUser(u)
+    }
+}

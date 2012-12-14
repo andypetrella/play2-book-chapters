@@ -1,0 +1,77 @@
+@(
+  dashboardForm: Form[controllers.Dashboard.Data],
+  allChats:Seq[Chat] = Nil,
+  itemForm:Form[Item],
+  sendImageForm:Form[Image]
+)(implicit request:RequestHeader)
+
+
+@createSelect(elId:Field, preparedChats:Seq[(String, String)]) = {
+  @helper.select(elId, preparedChats, '_label -> "Chats", 'class -> "selectChat")
+}
+
+@defining(allChats.map(c => (c.internalId.get.toString, c.topic)).toSeq) { preparedChats =>
+@main("Welcome on Play! 2 - ChatRum") {
+
+  <script>
+    $(function() {
+      window.chatrum = {}
+
+      window.chatrum.dashboard = new Dashboard({
+        el: $("#dashboard"),
+        closed:@dashboardForm.value.isDefined
+      });
+    });
+  </script>
+
+  <div id="dashboard">
+    <div id="loader">
+      <span class="header" title="Click to toggle">Change Chats or create</span>
+      <div class="container">
+
+        <div class="sampleJsBlock chat" style="display:none;">
+          @createSelect(dashboardForm("chatIds[x]"), preparedChats)
+        </div>
+
+        @helper.form(action=routes.Dashboard.open, 'id -> "selectChats") {
+
+          <div id="chatSelectors">
+            @helper.repeat(dashboardForm("chatIds"), min=2) { chatId =>
+              @createSelect(chatId, preparedChats)
+            }
+          </div>
+
+          <input id="addChatSelector" type="button" value="+"/>
+          <br/>
+          <input type="submit" value="Open"/>
+        }
+        <a href="@routes.Chats.registerChat()">Create a new one</a>
+      </div>
+    </div>
+
+
+    @defining(dashboardForm.value) {data =>
+      @if(data.isDefined) {
+      <div>
+        @defining(data.get.chats){ chosenChats =>
+          <script>
+            var chatIds = [];
+            $(function() {
+              @chosenChats.zipWithIndex.map{ chat_and_index =>
+                chatIds[@chat_and_index._2] = "@chat_and_index._1.internalId.get";
+              }
+              // TELL the dashboard whose rooms have been opened
+              window.chatrum.dashboard.opened(chatIds);
+            });
+          </script>
+          @chosenChats.map{ c =>
+            @chatroom(c)
+          }
+          @participatingChats(chosenChats, itemForm, sendImageForm)
+        }
+      </div>
+      }
+    }
+  </div>
+}
+}

@@ -1,0 +1,19 @@
+@(item:Item)
+
+<li class="item">
+
+  <span class="time">[@item.timestamp]</span>&nbsp;
+  <span>@if(item.user!=null){@item.user.email}</span>&nbsp;>&nbsp;
+  @item.message.split(" ").map{ w =>
+    @if(w(0) == '#'){
+      <span class="tag">@w</span>
+    }
+    @if(w(0) == '@'){
+      <span class="mention">@w</span>
+    }
+    @if(w(0) != '#' && w(0) != '@'){
+      @w
+    }
+  }
+
+</li>

@@ -1,0 +1,15 @@
+@(user:User)
+
+<div>
+    <h2>@user.name [@user.email]</h2>
+    <div class="bio">
+        @if(user.gender){She}else{He} has @user.age years old and lives at
+        @if(user.address != null){
+            <address>
+                @user.address.fullStreet<br/>
+                @user.address.county<br/>
+                @user.address.country<br/>
+            </address>
+        }
+    </div>
+</div>

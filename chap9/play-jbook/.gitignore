@@ -1,0 +1,9 @@
+*.sublime-*
+*ensime*
+.history
+.idea/
+.idea_modules/
+.settings/
+Play-jbook.iml
+target/
+

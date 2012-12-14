@@ -1,0 +1,47 @@
+@import "book-utils.less";
+
+body {
+    width: 960px;
+    margin: auto;
+
+    background-color: desaturate(lighten(@bgColor, 25%), 65%);
+    
+    border: 2px @bgColor solid;
+    .border-radius;
+    
+    padding: 0px 15px;
+}
+
+h1 {
+    color: saturate(@baseColor, 25%);
+}
+
+.date {
+    h2 {
+        border: 1px black dotted;
+        .border-radius(100px);
+        color: @baseColor;
+    }
+
+    .chat {
+        .box-shadow(-2px, -3px, 2px, fade(spin(@bgColor, 15%), 30%);
+        h3 {
+            border: 1px black solid;
+            .border-radius;
+            color: @baseColor
+        }
+        li.item span {
+            width: 100px; 
+            display:inline-block;
+
+            &:first-child {
+                color: lighten(@baseColor, 15%);
+            }
+
+            &.time {
+                color: saturate(@baseColor, 85%)
+            }
+        }
+    }
+
+}

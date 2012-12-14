@@ -1,0 +1,11 @@
+@()
+
+@import helper._
+
+@main("Login") {
+  Login with your email
+  @form(action=routes.Application.enter) {
+    <input type="text" name="email">
+  }
+  <a href="@routes.Users.registerUser.url">or create</a>
+}

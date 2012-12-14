@@ -1,0 +1,7 @@
+@(users:List[User])
+
+@mainExtended("All users") {
+    @users.map { u =>
+        @showUser(u)
+    }
+}

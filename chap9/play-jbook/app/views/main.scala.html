@@ -1,0 +1,23 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>@title</title>
+    <link rel="alternate" type="application/atom+xml" href="http://localhost:9000/content/atom/me@@home.org/thief@@hood.com/">
+
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/book.css")">
+
+    <!-- jQuery -->
+    <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <!-- import js reverse routing -->
+    <script src='@routes.Application.js' type='text/javascript'></script>
+  </head>
+  <body>
+    @content
+  </body>
+</html>

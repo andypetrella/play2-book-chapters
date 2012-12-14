@@ -1,0 +1,26 @@
+@(chats:Seq[Chat])
+
+@import org.joda.time.LocalDate
+
+@main("All chats") {
+  <h2>Archives</h2>
+    @helper.form(action=routes.Chats.loadChat) {
+      <select>
+        @chats.filter(_.date isBefore LocalDate.now).sortBy(_.occurrence).map { c =>
+        <option value="@c.internalId">@c.topic on @c.date</option>
+        }
+      </select>
+      <button>Show</button>
+    }
+  <h2>Active</h2>
+    @helper.form(action=routes.Chats.loadChat) {
+      <select name="chatid">
+        @chats.filter(_.date == LocalDate.now).sortBy(_.occurrence).map { c =>
+        <option value="@c.internalId">@c.topic on @c.date</option>
+        }
+      </select>
+      <button>Load</button>
+    }
+  <hr>
+  <a href="@routes.Chats.registerChat()">Create a new one</a>
+}

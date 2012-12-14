@@ -1,0 +1,41 @@
+@(chat:Chat)
+
+@import helper._
+
+
+<script>
+  $(function(){
+    var room = new ChatRoom({
+        id: @chat.internalId,
+        el: $("#chatroom_@chat.internalId")
+      });
+    // HACK to have rooms populated in the chatrum.rooms package
+    window.chatrum = window.chatrum || {}
+    window.chatrum.rooms = window.chatrum.rooms || {}
+    window.chatrum.rooms["chat" + @chat.internalId] = room
+  });
+</script>
+
+<div id="chatroom_@chat.internalId">
+  <h4 class="header">@chat.topic</h4>
+  <div class="chat">
+    <div class="content row">
+      <div class="react past">
+        <h2>So far...</h2>
+        <ul>
+        @chat.items.map { i =>
+          @listItem(i)
+        }
+        </ul>
+      </div>
+      <div class="attach past">
+        <h2>Attached Images</h2>
+        <ul>
+        @chat.images.map { i =>
+          <li>@i.caption : <img src="@routes.Content.getImage(i.internalId)" alt="@i.caption" title="@i.caption"/></li>
+        }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+@import "book-utils.less";
+
+body {
+    width: 960px;
+    margin: auto;
+
+    background-color: @bgColor;
+    color: @baseColor;
+
+    border: 2px @bgColor solid;
+    .border-radius;
+
+    padding: 0px 15px;
+}
+
+h1 {
+    color: desaturate(@baseColor, 45%);
+}
+
+h4 {
+    color: saturate(@baseColor, 25%);
+    background-color: desaturate(#0EE, 45%);
+    color: darken(white, 5%);
+    font-size: 150%;
+    .border-radius(45px);
+    text-align: center;
+    margin: 5px 0px;
+}
+
+
+#loader {
+    margin-bottom: 10px;
+}
+
+.header {
+    background-color: desaturate(#EEE, 85%);
+    background-alpha: 0.5;
+    .border-radius(5px);
+    text-align: center;
+    color: lighten(black, 35%);
+    padding: 4px;
+    border: 1px #ddd solid;
+    cursor: pointer;
+    .box-shadow(1px, 1px, 1px, fade(#777, 15%);
+}
+
+.chat {
+    .box-shadow(2px, 5px, 0px, fade(spin(darken(@bgColor, 15%), 15%), 30%);
+    border: 1px #ddd solid;
+    margin-bottom: 15px;
+    display: table;
+    width: 100%;
+    background: lighten(@bgColor, 1%);
+}
+
+.row {
+    width: 100%;
+    display: table-row;
+    padding-bottom: 10px;
+}
+
+.react {
+    width:50%;
+    display: table-cell;
+    border-right: 1px #111 dashed;
+    padding-left: 5px;
+    border-bottom: 1px #343 dotted;
+}
+
+.attach {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 5px;
+    border-bottom: 1px #343 dotted;
+}
+
+.date {
+    h2 {
+        border: 1px black dotted;
+        .border-radius(100px);
+        color: @baseColor;
+    }
+
+    .chat {
+        .box-shadow(-2px, -3px, 2px, fade(spin(@bgColor, 15%), 30%);
+        h3 {
+            border: 1px black solid;
+            .border-radius;
+            color: @baseColor
+        }
+        li.item span {
+            width: 100px;
+            display:inline-block;
+
+            &:first-child {
+                color: lighten(@baseColor, 15%);
+            }
+
+            &.time {
+                color: saturate(@baseColor, 85%)
+            }
+        }
+    }
+
+}

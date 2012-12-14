@@ -1,0 +1,3 @@
+@(item:Item)
+
+<li class="item"><span class="time">[@item.timestamp]</span> <span>@if(item.user!=null){@item.user.email}</span> > @item.message</li>

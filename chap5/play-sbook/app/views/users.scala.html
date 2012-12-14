@@ -1,0 +1,7 @@
+@(users:Seq[User])
+
+@main("All users") {
+    @users.map { u =>
+        @showUser(u)
+    }
+}

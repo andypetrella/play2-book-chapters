@@ -1,0 +1,55 @@
+@(userForm:Form[User])
+@main("Register User") {
+    <style>
+        label {
+            color: blue;
+        }
+        dd.info {
+            color: green;
+        }
+        dd.error {
+            color: red;
+        }
+    </style>
+
+    @if(userForm.hasErrors) {
+        <div style="background-color:red; color:white;">The form has @userForm.errors.size errors</div>
+    }
+    @if(userForm.value.isDefined) {
+        <h1>@userForm.get.name (@userForm.get.age)</h1>
+        <h2>Lives at @userForm.get.address.fullStreet</h2>
+    } else {
+        <h1>Feed some data</h1>
+        @helper.form(action = routes.Users.createUser()) {
+            @helper.inputText(userForm("name"))
+
+            @helper.input(userForm("email")) { (id, name, value, args) =>
+                <input type="email" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+            @helper.input(userForm("age")) { (id, name, value, args) =>
+                <input type="number" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+
+            @helper.inputRadioGroup(
+                userForm("gender"),
+                options = helper.options("true"->"Female", "false"->"Male")
+            )
+            <fieldset>
+                <legend>Address</legend>
+                @helper.inputText(userForm("address.fullStreet"))
+                @helper.inputText(
+                    userForm("address.county"),
+                    '_label -> "County"
+                )
+                @helper.select(userForm("address.country"), Seq(
+                    "" -> "---",
+                    "AR" -> "Arda",
+                    "BE" -> "Belgium",
+                    "SL" -> "Smurfs Land")
+                )
+            </fieldset>
+
+            <button name="send">Feed</button>
+        }
+    }
+}

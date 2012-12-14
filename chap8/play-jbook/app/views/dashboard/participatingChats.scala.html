@@ -1,0 +1,33 @@
+@(
+  chats:List[Chat] = Nil,
+  itemForm:Form[Item],
+  sendImageForm:Form[Image]
+)
+
+@import helper._
+
+ <div class="interact row">
+  <select id="chatSelect">
+    @chats.map{ c =>
+      <option value="@c.internalId">@c.topic</option>
+    }
+  </select>
+  <div class="react">
+    <h3>React</h3>
+    <form id="talk">
+      @inputText(itemForm("message"))
+      <input type="submit" value="send"/>
+    </form>
+  </div>
+
+  <div class="attach">
+    <h3>Attach an image</h3>
+    <form id="sendImage"action="#"method="POST"enctype="multipart/form-data">
+      @inputText(sendImageForm("caption"))
+
+      @inputFile(sendImageForm("pic"))
+
+      <input type="submit" value="send"/>
+    </form>
+  </div>
+</div>

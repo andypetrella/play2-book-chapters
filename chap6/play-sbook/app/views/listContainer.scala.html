@@ -1,0 +1,11 @@
+@(header:Html)(chat:Chat)(footer:Html)
+
+<div class="chat" style="margin-left: @{5*chat.occurrence}%">
+    @header    
+    <ul>
+        @chat.items.map { item =>
+            @listItem(item)
+        }
+    </ul>
+    @footer
+</div>
