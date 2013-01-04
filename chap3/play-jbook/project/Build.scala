@@ -7,7 +7,6 @@ object ApplicationBuild extends Build {
     val appName         = "play-jbook"
     val appVersion      = "1.0-SNAPSHOT"
 
-
     val appDependencies = Seq(
         //groupId          >   artifactId  >   version
         //"com.google.guava" %   "guava"     %   "12.0.1"

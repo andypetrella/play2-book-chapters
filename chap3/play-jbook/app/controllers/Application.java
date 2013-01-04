@@ -51,7 +51,7 @@ public class Application extends Controller {
         new Item("no-one", LocalTime.now(), "Yes?")
     ));
 
-    return ok(index.render("Chat Archives", asList(
+    return ok(index.render("It Works!", asList(
             chat23,
             chat11, 
             chat21, 

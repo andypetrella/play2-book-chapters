@@ -2,7 +2,7 @@
 
 @import models.Chat
 
-<div class="chat" style="margin-left: @{5*chat.occurrence}%">
+<div style="margin-left: @{5*chat.occurrence}%">
     @header    
     <ul>
         @chat.items.map { item =>

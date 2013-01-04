@@ -1,7 +1,12 @@
-@(message: String)
+@(message: String)(level:Int, items:Seq[Item])
 
-@main("Welcome to Play 2.0") {
+@import models.Item
 
-  @message
-
+@main("Welcome the Packt Plublishing's Play 2.0 Demo") {
+    <h1>@message</h1>
+    @listContainer{
+        <h@level>Level @level</h@level>
+    }(level, items) {
+        <div>-- end of Level@level</div>
+    }
 }
