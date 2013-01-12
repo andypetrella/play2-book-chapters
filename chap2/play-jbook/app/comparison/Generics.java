@@ -39,7 +39,7 @@ class Generics {
         B apply(A a);
     }
     //WILL FAIL AT COMPILE TIME
-    // interface Functor<F<*>> {
+    // interface Functor<F<?>> {
     //     <A, B> F<B> fmap(F<A> a, Function1<A,B> f);
     // }
 

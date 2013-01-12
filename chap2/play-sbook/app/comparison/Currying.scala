@@ -18,12 +18,13 @@ object Currying {
 
     def showMessage(msg:String)(lang:String) = println(messages(lang)(msg))
 
-    def showInEn(msg:String) = showMessage(msg)("en")
-    def showInFr(msg:String) = showMessage(msg)("fr")
+    //those following function are partially applied (note the vals)
+    val showInEn = showMessage(_:String)("en")
+    val showInFr = showMessage(_:String)("fr")
 
     //call it will output Hello! in the REPL
-    def showWelcomeInEn = showInEn("welcome")
+    val showWelcomeInEn = showInEn("welcome")
     //call it will output Salut! in the REPL
-    def showWelcomeInFr = showInFr("welcome")
+    val showWelcomeInFr = showInFr("welcome")
 
 }
