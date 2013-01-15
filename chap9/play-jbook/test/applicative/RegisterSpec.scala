@@ -27,7 +27,7 @@ class RegisterSpec extends Specification {
         user.name = "Smurfette"
         user.email = "smurfette@smurf.com"
         user.age = 100
-        user.gender = true
+        user.female = true
         user.address = address
 
         //take the user and bind it to the user form in Users.java

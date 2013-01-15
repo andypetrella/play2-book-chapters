@@ -13,8 +13,8 @@ public class SampleDb {
         return DB.getConnection();
     }
 
-    public static void disconnect(Connection connection) {
-        DB.getConnection();
+    public static void disconnect(Connection connection) throws SQLException {
+        connection.close();
     }
 
     public static void createTestTable() throws Exception {

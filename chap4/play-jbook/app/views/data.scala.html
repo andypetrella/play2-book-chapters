@@ -31,7 +31,7 @@
             }
 
             @helper.inputRadioGroup(
-                userForm("gender"),
+                userForm("female"),
                 options = helper.options("true"->"Female", "false"->"Male")
             )
             <fieldset>
@@ -49,7 +49,7 @@
                 )
             </fieldset>
 
-            <button name="send">Feed</button>
+            <input type="submit" name="send" value="Feed" />
         }
     }
 }

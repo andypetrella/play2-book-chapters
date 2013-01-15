@@ -7,7 +7,7 @@ case class User(
   name:String,
   email:Pk[String] = NotAssigned,
   age:Int,
-  gender:Boolean,
+  female:Boolean,
   address:Address,
   spouse:Option[User]=None,
   friends:Seq[User]=Seq()
@@ -27,14 +27,14 @@ case class User(
           name,
           email,
           age,
-          gender,
+          female,
           address_internal_id
         )
         VALUES (
           {name},
           {email},
           {age},
-          {gender},
+          {female},
           {addressId}
         )
       """
@@ -42,7 +42,7 @@ case class User(
       'name -> name,
       'email -> email.get,
       'age -> age,
-      'gender -> gender,
+      'female -> female,
       'addressId -> address.internalId.get
     ).executeUpdate()
     this
@@ -55,7 +55,7 @@ case class User(
         SET
           name = {name},
           age = {age},
-          gender = {gender},
+          female = {female},
           address_internal_id = {addressId}
         WHERE
           email = {email}
@@ -64,7 +64,7 @@ case class User(
       'name -> name,
       'email -> email.get,
       'age -> age,
-      'gender -> gender,
+      'female -> female,
       'addressId -> address.internalId.get    //still assuming that address has been stored
     ).executeUpdate()
     this
@@ -81,10 +81,10 @@ object User {
     get[Pk[String]]("user.email") ~
     get[String]("user.name") ~
     get[Int]("user.age") ~
-    get[Boolean]("user.gender") ~
+    get[Boolean]("user.female") ~
     Address.simple map {
-      case email~name~age~gender~address =>
-        User(name, email, age, gender, address)
+      case email~name~age~female~address =>
+        User(name, email, age, female, address)
     }
   }
 

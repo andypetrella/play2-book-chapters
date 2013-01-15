@@ -42,7 +42,7 @@ create table user (
   email                     varchar(255) not null,
   name                      varchar(255),
   age                       integer,
-  gender                    boolean,
+  female                    boolean,
   address_internal_id       bigint,
   constraint pk_user primary key (email))
 ;

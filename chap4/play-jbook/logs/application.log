@@ -1,0 +1,74 @@
+2013-01-15 21:10:34,390 - [INFO] - from play in main 
+Listening for HTTP on port 9000...
+
+2013-01-15 21:10:47,103 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+database [default] connected at jdbc:h2:mem:play
+
+2013-01-15 21:10:48,423 - [ERROR] - from application in New I/O server worker #1-1 
+
+
+! @6d2o3kaan - Internal server error, for request [GET /] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:424) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:410) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.12.0]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.12.0]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:410) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.12.0]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.12.0]
+	at play.api.Play$.start(Play.scala:60) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:125) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.12.0]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:112) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:110) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Either$RightProjection.flatMap(Either.scala:277) ~[scala-library.jar:0.12.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor-2.0.2.jar:2.0.2]
+
+2013-01-15 21:10:56,370 - [WARN] - from play in New I/O server worker #1-1 
+Applying evolution script for database 'default':
+
+# --- Rev:1,Ups - 73a26d7
+create table address (
+internal_id               bigint not null,
+full_street               varchar(255),
+county                    varchar(255),
+country                   varchar(255),
+constraint pk_address primary key (internal_id))
+;
+
+create table user (
+email                     varchar(255) not null,
+name                      varchar(255),
+age                       integer,
+female                    boolean,
+address_internal_id       bigint,
+constraint pk_user primary key (email))
+;
+
+create sequence address_seq;
+
+create sequence user_seq;
+
+alter table user add constraint fk_user_address_1 foreign key (address_internal_id) references address (internal_id) on delete restrict on update restrict;
+create index ix_user_address_1 on user (address_internal_id);
+
+
+2013-01-15 21:10:57,177 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+database [default] connected at jdbc:h2:mem:play
+
+2013-01-15 21:10:57,638 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+Application started (Dev)
+

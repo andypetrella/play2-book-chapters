@@ -23,7 +23,7 @@ object Users extends Controller {
       "name" -> nonEmptyText,
       "email" -> optToPk(optional(email)),
       "age" -> number(min=0, max=150),
-      "gender" -> boolean,
+      "female" -> boolean,
       "address" -> addressMapping,
       "spouse" -> ignored(None:Option[User]),
       "friends" -> ignored(Seq():Seq[User])

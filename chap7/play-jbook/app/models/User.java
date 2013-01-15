@@ -25,7 +25,7 @@ public class User extends play.db.ebean.Model {
     public Integer age;
 
     @Required
-    public Boolean gender;
+    public Boolean female;
 
     @Valid
     @Required

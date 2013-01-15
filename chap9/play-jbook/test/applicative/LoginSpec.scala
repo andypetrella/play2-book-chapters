@@ -64,7 +64,7 @@ class LoginSpec extends Specification {
         user.name = "Grandpa"
         user.email = "grandpa@smurf.com"
         user.age = 109
-        user.gender = false
+        user.female = false
         user.address = address
         user.save
 

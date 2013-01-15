@@ -54,7 +54,7 @@ public class Global extends GlobalSettings {
       userData.put("name", "Me");
       userData.put("email", "me@home.org");
       userData.put("age", "3");
-      userData.put("gender", "false");
+      userData.put("female", "false");
       userData.put("address.fullStreet", "Home, 2");
       userData.put("address.county", "Lost Village");
       userData.put("address.country", "BE");
@@ -69,7 +69,7 @@ public class Global extends GlobalSettings {
       SampleUsers.get.robin.name = "Robin";
       SampleUsers.get.robin.email = "thief@hood.com";
       SampleUsers.get.robin.age = 26;
-      SampleUsers.get.robin.gender = true; //He wears PANTS!
+      SampleUsers.get.robin.female = true; //He wears PANTS!
       SampleUsers.get.robin.address = address; //same address as me...
 
       SampleUsers.get.robin.save();
@@ -80,7 +80,7 @@ public class Global extends GlobalSettings {
       SampleUsers.get.noOne.name = "Who";
       SampleUsers.get.noOne.email = "no@one.biz";
       SampleUsers.get.noOne.age = 2;
-      SampleUsers.get.noOne.gender = false;
+      SampleUsers.get.noOne.female = false;
       SampleUsers.get.noOne.address = address; //same address as me...
 
       SampleUsers.get.noOne.save();

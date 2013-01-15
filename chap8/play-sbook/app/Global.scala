@@ -23,21 +23,21 @@ object Global extends GlobalSettings {
       name = "Me",
       email = Id("me@home.org"),
       age = 3,
-      gender = false,
+      female = false,
       address = address
     ),
     User(
       name = "Robin",
       email = Id("thief@hood.com"),
       age = 26,
-      gender = true, //He wears PANTS!
+      female = true, //He wears PANTS!
       address = address
     ),
     User(
       name = "Who",
       email = Id("no@one.biz"),
       age = 2,
-      gender = false,
+      female = false,
       address = address
     )
   ))

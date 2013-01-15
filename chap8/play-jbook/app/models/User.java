@@ -25,7 +25,7 @@ public class User extends play.db.ebean.Model {
     public Integer age;
 
     @Required
-    public Boolean gender;
+    public Boolean female;
 
     @Valid
     @Required
@@ -44,6 +44,6 @@ public class User extends play.db.ebean.Model {
 
     @Override
     public String toString() {
-        return "User("+name+","+email+","+age+","+(gender?"female":"male")+")";
+        return "User("+name+","+email+","+age+","+(female?"female":"male")+")";
     }
 }

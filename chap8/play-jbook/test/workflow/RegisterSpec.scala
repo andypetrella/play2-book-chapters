@@ -19,7 +19,7 @@ class RegisterSpec extends Specification {
 
         browser.$("a").click()
         browser.url must be_==(baseURL+"/form/user")
-        browser.$("#gender_radio label").getTexts.get(0) must be_==("Female")
+        browser.$("#female_radio label").getTexts.get(0) must be_==("Female")
 
         val sauronEmail = "sauron@puppet.land"
         browser.fill("input", `with`("type").notContains("radio")).`with`(
@@ -29,7 +29,7 @@ class RegisterSpec extends Specification {
             "Mordor, 0",
             "Middle-Earth"
           )
-        browser.$("#gender_radio_false").click()
+        browser.$("#female_radio_false").click()
         browser.click("option", withText("Arda"));
         browser.submit(browser.$("form"))
 
