@@ -1,13 +1,13 @@
-2013-01-15 21:10:34,390 - [INFO] - from play in main 
+2013-01-16 22:13:10,404 - [INFO] - from play in main 
 Listening for HTTP on port 9000...
 
-2013-01-15 21:10:47,103 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2013-01-16 22:13:31,000 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 database [default] connected at jdbc:h2:mem:play
 
-2013-01-15 21:10:48,423 - [ERROR] - from application in New I/O server worker #1-1 
+2013-01-16 22:13:32,334 - [ERROR] - from application in New I/O server worker #1-1 
 
 
-! @6d2o3kaan - Internal server error, for request [GET /] ->
+! @6d35j1n17 - Internal server error, for request [GET /] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:424) ~[play_2.9.1-2.0.2.jar:2.0.2]
@@ -37,7 +37,7 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor-2.0.2.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor-2.0.2.jar:2.0.2]
 
-2013-01-15 21:10:56,370 - [WARN] - from play in New I/O server worker #1-1 
+2013-01-16 22:13:38,665 - [WARN] - from play in New I/O server worker #1-1 
 Applying evolution script for database 'default':
 
 # --- Rev:1,Ups - 73a26d7
@@ -66,9 +66,103 @@ alter table user add constraint fk_user_address_1 foreign key (address_internal_
 create index ix_user_address_1 on user (address_internal_id);
 
 
-2013-01-15 21:10:57,177 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2013-01-16 22:13:39,219 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
 database [default] connected at jdbc:h2:mem:play
 
-2013-01-15 21:10:57,638 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2013-01-16 22:13:39,684 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
 Application started (Dev)
+
+2013-01-16 22:13:39,929 - [ERROR] - from application in play-akka.actor.actions-dispatcher-10 
+
+
+! @6d35j1n19 - Internal server error, for request [GET /assets/javascripts/jquery-1.7.1.min.js] ->
+
+play.core.ActionInvoker$$anonfun$receive$1$$anon$1: Execution exception [[NumberFormatException: multiple points]]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:134) [play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:115) [play_2.9.1-2.0.2.jar:2.0.2]
+	at akka.actor.Actor$class.apply(Actor.scala:318) [akka-actor-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker.apply(Invoker.scala:113) [play_2.9.1-2.0.2.jar:2.0.2]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:626) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:197) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:179) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:516) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) [akka-actor-2.0.2.jar:2.0.2]
+Caused by: java.lang.NumberFormatException: multiple points
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1102) ~[na:1.6.0_24]
+	at java.lang.Double.parseDouble(Double.java:527) ~[na:1.6.0_24]
+	at java.text.DigitList.getDouble(DigitList.java:168) ~[na:1.6.0_24]
+	at java.text.DecimalFormat.parse(DecimalFormat.java:1320) ~[na:1.6.0_24]
+	at java.text.SimpleDateFormat.subParse(SimpleDateFormat.java:1561) ~[na:1.6.0_24]
+	at java.text.SimpleDateFormat.parse(SimpleDateFormat.java:1281) ~[na:1.6.0_24]
+	at java.text.DateFormat.parse(DateFormat.java:352) ~[na:1.6.0_24]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11$$anonfun$apply$12.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11$$anonfun$apply$12.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.filterNot(Option.scala:162) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11.apply(Assets.scala:79) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.flatMap(Option.scala:146) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10.apply(Assets.scala:79) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10.apply(Assets.scala:113) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6.apply(Assets.scala:78) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6.apply(Assets.scala:57) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1.apply(Assets.scala:57) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1.apply(Assets.scala:43) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.api.mvc.Action$$anon$1.apply(Action.scala:170) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:17) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:125) [play_2.9.1-2.0.2.jar:2.0.2]
+	... 11 common frames omitted
+
+2013-01-16 22:13:39,929 - [ERROR] - from application in play-akka.actor.actions-dispatcher-9 
+
+
+! @6d35j1n18 - Internal server error, for request [GET /assets/stylesheets/book.css] ->
+
+play.core.ActionInvoker$$anonfun$receive$1$$anon$1: Execution exception [[NumberFormatException: multiple points]]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:134) [play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:115) [play_2.9.1-2.0.2.jar:2.0.2]
+	at akka.actor.Actor$class.apply(Actor.scala:318) [akka-actor-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker.apply(Invoker.scala:113) [play_2.9.1-2.0.2.jar:2.0.2]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:626) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:197) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:179) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:516) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) [akka-actor-2.0.2.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) [akka-actor-2.0.2.jar:2.0.2]
+Caused by: java.lang.NumberFormatException: multiple points
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1102) ~[na:1.6.0_24]
+	at java.lang.Double.parseDouble(Double.java:527) ~[na:1.6.0_24]
+	at java.text.DigitList.getDouble(DigitList.java:168) ~[na:1.6.0_24]
+	at java.text.DecimalFormat.parse(DecimalFormat.java:1320) ~[na:1.6.0_24]
+	at java.text.SimpleDateFormat.subParse(SimpleDateFormat.java:1561) ~[na:1.6.0_24]
+	at java.text.SimpleDateFormat.parse(SimpleDateFormat.java:1281) ~[na:1.6.0_24]
+	at java.text.DateFormat.parse(DateFormat.java:352) ~[na:1.6.0_24]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11$$anonfun$apply$12.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11$$anonfun$apply$12.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.filterNot(Option.scala:162) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11.apply(Assets.scala:80) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10$$anonfun$apply$11.apply(Assets.scala:79) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.flatMap(Option.scala:146) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10.apply(Assets.scala:79) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6$$anonfun$apply$10.apply(Assets.scala:113) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6.apply(Assets.scala:78) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1$$anonfun$apply$6.apply(Assets.scala:57) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.12.0]
+	at controllers.Assets$$anonfun$at$1.apply(Assets.scala:57) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at controllers.Assets$$anonfun$at$1.apply(Assets.scala:43) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.api.mvc.Action$$anon$1.apply(Action.scala:170) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:17) ~[play_2.9.1-2.0.2.jar:2.0.2]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:125) [play_2.9.1-2.0.2.jar:2.0.2]
+	... 11 common frames omitted
 

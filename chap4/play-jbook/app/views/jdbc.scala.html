@@ -1,41 +1,50 @@
 @()
 
 @main("jdbc test") {
-    <script>
-        $(function() {
-            var result = $("#result");
+  <script>
+    // JavaScript that makes AJAX call using the `href` in the <A>
+    //  and toggles the LIs one after another
+    $(function() {
+      var result = $("#result");
 
-            var showResult = function showResult(results) {
-                result.empty();
-                if ($.isArray(results)) results = results; else  results = [results];
-                for (var i=0, l = results.length; i < l ; i++) {
-                    result.append("<li>"+results[i]+"</li>");
-                }
-            };
+      var showResult = function showResult(results) {
+        result.empty();
+        if ($.isArray(results)) results = results; else  results = [results];
+        for (var i=0, l = results.length; i < l ; i++) {
+          result.append("<li>"+results[i]+"</li>");
+        }
+      };
 
-            $("a").click(function(e) {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-                e.preventDefault();
-                $.get($(this).attr("href"), function(d) {showResult(d);});
-                $(this)
-                    .parent()
-                        .hide()
-                    .next()
-                        .show();
-                return false;
-            });
-        });
-    </script>
-
-
-    <ol>
-        <li><a href="@routes.JDBC.table">Create table</a></li>
-        <li style="display:none;list-style:none;"><a href="@routes.JDBC.test("Don''t insert me")">first val</a></li>
-        <li style="display:none;list-style:none;"><a href="@routes.JDBC.test("What did I said?")">second val</a></li>
-        <li style="display:none;list-style:none;"><a href="@routes.JDBC.test("Grrr")">third val</a></li>
-        <li style="display:none;list-style:none;">End</li>
-    </ol>
-    <ul id="result">
-    </ul>
+      $("a").click(function(e) {
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        e.preventDefault();
+        $.get($(this).attr("href"), function(d) {showResult(d);});
+        $(this)
+          .parent()
+            .hide()
+          .next()
+            .show();
+        return false;
+      });
+    });
+  </script>
+  <style>
+    ol li {
+      display:none;
+      list-style:none;
+    }
+    ol li:first-child {
+      display:block;
+    }
+  </style>
+  <ol id="jdbcresult">
+    <li><a href="@routes.JDBC.table">Create table</a></li>
+    <li><a href="@routes.JDBC.test("Don''t insert me")">first val</a></li>
+    <li><a href="@routes.JDBC.test("What did I said?")">second val</a></li>
+    <li><a href="@routes.JDBC.test("Grrr")">third val</a></li>
+    <li>End</li>
+  </ol>
+  <ul id="result">
+  </ul>
 }
