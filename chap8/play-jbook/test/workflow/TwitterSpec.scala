@@ -10,7 +10,7 @@ import play.api.libs.ws.WS
 
 class TwitterSpec extends Specification {
   "Twitter search service " should {
-    "for mentions returns tweets with the user name" in {
+    "return tweets with the user name when searching for mentions" in {
       // NOW we're running a server!
       running(TestServer(3333, FakeApplication())) {
         //we use our application through a real HTTP request.

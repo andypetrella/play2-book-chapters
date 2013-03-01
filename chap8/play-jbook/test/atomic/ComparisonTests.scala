@@ -37,7 +37,7 @@ class ComparisonSpec extends Specification {
       // 3 can be found
       ((three.isDefined:Boolean) must beTrue) and
       //and get it from option won't throw "None.get"
-      (three.get must not throwA(new RuntimeException()))
+      (three.get must not throwA(new NoSuchElementException()))
     }
     "return false when using 'biggerThan5''" in {
       val big:Boolean = Sequence.biggerThan5
