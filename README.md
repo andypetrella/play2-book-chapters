@@ -19,7 +19,7 @@ The changes focuses on file changes, and is break down into chapters bounds.
 
 So each file correspond to an 3rd level header. 
 
-The lines to be changed starts with '<<' with their related changes, lines starting with '>>'.
+The lines to be changed starts with '--' with their related changes, lines starting with '++'.
 
 Checkpoints (one or several tackled chapters) are indicated within a blockquote and followed by a straight line.
 
@@ -32,89 +32,108 @@ Changes
 --------
 
 ## build.properties
-<< "sbt.version=0.11.3"
->> "sbt.version=0.12.2"
+-- "sbt.version=0.11.3"
+++ "sbt.version=0.12.2"
 
 ## plugins.sbt
-<< "addSbtPlugin("play" % "sbt-plugin" % "2.0.2")""
->> "addSbtPlugin("play" % "sbt-plugin" % "2.1.0")""
+-- "addSbtPlugin("play" % "sbt-plugin" % "2.0.2")""
+
+++ "addSbtPlugin("play" % "sbt-plugin" % "2.1.0")""
 
 > chap1 ok
 > chap2 ok
 
 ---------------------------------------
 
--- books.less
-<< #27: box-shadow
->> missing ')' before ';'
+## books.less
+-- #27: box-shadow
 
-:: chap3 ok
+++ missing ')' before ';'
 
--- *.java
-<< "= form("
->> "= Form.form("
+> chap3 ok
 
-<< ".join("
->> ".fetch("
+---------------------------------------
 
--- Addres.scala
->> "import anorm.SqlParser._"
+## *.java
+-- "= form("
 
-:: chap4 ok
+++ "= Form.form("
 
--- Chats.java
-<< #35,71,93: "fetch"
->> #35,71,93: "join"
+and
 
-:: chap5 ok
+-- ".join("
+++ ".fetch("
 
--- Chats.java
-<< #45,208: "fetch"
->> #45,208: "join"
+## Addres.scala
+++ "import anorm.SqlParser._"
 
->> "import scala.concurrent.duration.Duration;"
->>  #195 ",Akka.system().dispatcher()"
+> chap4 ok
 
--- Chat.java
->> "import java.util.ArrayList"
+---------------------------------------
 
->> "public List<Item> items;"
-<< "public List<Item> items = new ArrayList<Item>();"
+## Chats.java
+-- #35,71,93: "fetch"
+
+++ #35,71,93: "join"
+
+> chap5 ok
+
+---------------------------------------
+
+## Chats.java
+
+-- "import scala.concurrent.duration.Duration;"
+
+++  #195 ",Akka.system().dispatcher()"
+
+## Chat.java
+++ "import java.util.ArrayList"
+
+-- "public List<Item> items;"
+
+++ "public List<Item> items = new ArrayList<Item>();"
 
 >> "public List<Image> images;"
 << "public List<Image> images = new ArrayList<Image>();"
 
-:: chap6 ok
+> chap6 ok
 
--- Chats.scala
->> "import scala.concurrent.duration.Duration;"
->> "import play.api.libs.concurrent.Execution.Implicits._"
+---------------------------------------
 
-<< "onStart = println("Web Socket started"),"
->> "onStart = () => println("Web Socket started"),"
+## Chats.scala
+-- "import scala.concurrent.duration.Duration;"
 
-<< "onComplete = println("Web Socket stopped"),"
->> "onComplete = () => println("Web Socket stopped"),"
+++ "import play.api.libs.concurrent.Execution.Implicits._"
 
--- Twitter.scala
->> "import play.api.libs.concurrent.Execution.Implicits._"
+and
 
--- Image.scala
-<< "def reads (json: JsValue): Image =
-      Image(
-    "
->> "def reads (json: JsValue): JsResult[Image] =
-      JsSuccess(Image(
-    "
+-- "onStart = println("Web Socket started"),"
+++ "onStart = () => println("Web Socket started"),"
 
--- Item.scala
-<< "def reads (json: JsValue): Item =
-      Item(
-    "
->> "def reads (json: JsValue): JsResult[Item] =
-      JsSuccess(Item(
-    "
+and 
 
-:: chap7 ok
-:: chap8 ok
-:: chap9 ok
+-- "onComplete = println("Web Socket stopped"),"
+
+++ "onComplete = () => println("Web Socket stopped"),"
+
+## Twitter.scala
+++ "import play.api.libs.concurrent.Execution.Implicits._"
+
+## Image.scala
+-- "def reads (json: JsValue): Image = Image("
+
+++ "def reads (json: JsValue): JsResult[Image] = JsSuccess(Image("
+
+## Item.scala
+-- "def reads (json: JsValue): Item = Item("
+
+++ "def reads (json: JsValue): JsResult[Item] = JsSuccess(Item("
+
+> chap7 ok
+> chap8 ok
+> chap9 ok
+
+---------------------------------------
+
+That's all folks
+----------------
