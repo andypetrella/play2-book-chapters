@@ -38,7 +38,7 @@ public class Content extends Controller {
       }
 
       List<User> users = User.find
-                                .join("address")
+                                .fetch("address")
                                 .where()
                                 .in("email", emails)
                               .findList();

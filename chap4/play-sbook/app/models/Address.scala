@@ -5,6 +5,7 @@ import play.api.Play.current
 import play.api.db.DB
 
 import anorm._
+import anorm.SqlParser._
 
 case class Address(
   internalId:Pk[Long] = NotAssigned,

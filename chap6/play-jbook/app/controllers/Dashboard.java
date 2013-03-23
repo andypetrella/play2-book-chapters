@@ -18,7 +18,7 @@ import play.cache.*;
 
 
 public class Dashboard extends Controller {
-  static public Form<Data>  dashboardForm  = form(Data.class);
+  static public Form<Data>  dashboardForm  = Form.form(Data.class);
 
   public static Result index() {
       return ok(
@@ -27,7 +27,7 @@ public class Dashboard extends Controller {
   }
 
   public static Result open() {
-      Form<Data> dashboardForm = form(Data.class);
+      Form<Data> dashboardForm = Form.form(Data.class);
       Form<Data> filledForm = dashboardForm.bindFromRequest();
       if(dashboardForm.hasErrors()) {
         return badRequest(

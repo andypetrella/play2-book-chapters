@@ -134,7 +134,7 @@ public class Global extends GlobalSettings {
       chat.items.add(item);
       chat.save();
     } else {
-      List<User> users = User.find.join("address").findList();
+      List<User> users = User.find.fetch("address").findList();
       for (User user : users) {
         if (user.email.equals("me@home.org")) {
           SampleUsers.get.me = user;

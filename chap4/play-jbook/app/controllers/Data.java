@@ -15,7 +15,7 @@ import java.util.*;
 
 public class Data extends Controller {
 
-    static Form<User> userForm = form(User.class);
+    static Form<User> userForm = Form.form(User.class);
 
     public static Result show() {
         return ok(data.render(userForm));
@@ -46,7 +46,7 @@ public class Data extends Controller {
     public static Result allUsers() {
         //necessary in order to fetch the whole address at once for each user
         //Otherwise it will be proxied and its field won't be available in the templates.
-        List<User> users = User.find.join("address").findList();        /*5*/
+        List<User> users = User.find.fetch("address").findList();        /*5*/
         return ok(
             views.html.users.render(users)                              /*6*/
         );

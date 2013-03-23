@@ -1,7 +1,7 @@
 package models;
 
 import org.joda.time.LocalDate;
-import java.util.List;
+import java.util.ArrayList;
 
 import play.data.*;
 import play.data.validation.Constraints.*;
@@ -29,12 +29,12 @@ public class Chat extends play.db.ebean.Model {
   @OneToMany(cascade=CascadeType.ALL)
   @OrderBy("timestamp")
   @JoinColumn(name="CHAT_ID", referencedColumnName="internal_id")
-  public List<Item> items;
+  public List<Item> items = new ArrayList<Item>();
 
   @Valid
   @OneToMany(cascade=CascadeType.ALL)
   @JoinColumn(name="CHAT_ID", referencedColumnName="internal_id")
-  public List<Image> images;
+  public List<Image> images = new ArrayList<Image>();
 
   public Chat() {
   }

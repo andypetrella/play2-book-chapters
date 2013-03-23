@@ -14,5 +14,5 @@ public class Chat {
         this.occurrence = occurrence;
         this.items      = items;
     }
-    
+
 }

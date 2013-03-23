@@ -15,7 +15,7 @@ import java.util.*;
 import org.joda.time.LocalDate;
 
 public class Chats extends Controller {
-  static public Form<Chat>  chatForm  = form(Chat.class);
+  static public Form<Chat>  chatForm  = Form.form(Chat.class);
 
   public static Result registerChat() {
       Map<String, String> m = new HashMap<String, String>();
@@ -33,9 +33,9 @@ public class Chats extends Controller {
                       .where()
                         .eq("internalId", chatId)
                         .join("items")
-                          .join("items.user")
-                        .join("images")
-                          .join("images.user")
+                          .fetch("items.user")
+                        .fetch("images")
+                          .fetch("images.user")
                       .findUnique();
 
     return ok(
@@ -62,7 +62,7 @@ public class Chats extends Controller {
       }
   }
 
-  static public Form<Item>  itemForm  = form(Item.class);
+  static public Form<Item>  itemForm  = Form.form(Item.class);
   public static Result talk(Long chatId) {
     User user = User.find.byId(session("email"));
     Chat chat = Chat.find
@@ -84,7 +84,7 @@ public class Chats extends Controller {
   }
 
 
-  public static Form<Image> imageForm = form(Image.class);
+  public static Form<Image> imageForm = Form.form(Image.class);
   public static Result receiveImage(Long chatId) {
     User user = User.find.byId(session("email"));
     Chat chat = Chat.find
