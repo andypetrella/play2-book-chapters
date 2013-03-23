@@ -1,13 +1,48 @@
--- build.properties
+Minimum migration to 2.1
+========================
+
+Goal
+----
+The goal of this branch is to migrate all sources to the 2.1 version.
+
+This is mostly following the [guidelines](http://www.playframework.com/documentation/2.1.0/Migration).
+But also include some adaptation that aren't documented so far.
+
+The purpose here is not to have a pure 2.1 version (some API slightly changed), 
+but it's to make all surgical changes necessary to have the code compiling and running.
+
+Also all changes are presented incrementally chapter by chapter as well (so changes made for chapters 1 and 2 must be done for all following).
+
+Structure
+---------
+The changes focuses on file changes, and is break down into chapters bounds.
+
+So each file correspond to an 3rd level header. 
+
+The lines to be changed starts with '<<' with their related changes, lines starting with '>>'.
+
+Checkpoints (one or several tackled chapters) are indicated within a blockquote and followed by a straight line.
+
+Last note
+---------
+You can also just `checkout` this branch, if you're starting from 2.1 !
+
+
+Changes
+--------
+
+## build.properties
 << "sbt.version=0.11.3"
 >> "sbt.version=0.12.2"
 
--- plugins.sbt
+## plugins.sbt
 << "addSbtPlugin("play" % "sbt-plugin" % "2.0.2")""
 >> "addSbtPlugin("play" % "sbt-plugin" % "2.1.0")""
 
-:: chap1 ok
-:: chap2 ok
+> chap1 ok
+> chap2 ok
+
+---------------------------------------
 
 -- books.less
 << #27: box-shadow
