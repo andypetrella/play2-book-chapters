@@ -20,6 +20,7 @@ import play.libs.Json;
 import org.codehaus.jackson.JsonNode;
 
 import akka.util.*;
+import scala.concurrent.duration.Duration;
 
 
 import static play.libs.F.*;
@@ -42,7 +43,7 @@ public class Chats extends Controller {
     Chat chat = Chat.find
                       .where()
                         .eq("internalId", chatId)
-                        .fetch("items")
+                        .join("items")
                           .fetch("items.user")
                         .fetch("images")
                           .fetch("images.user")
@@ -191,7 +192,8 @@ public class Chats extends Controller {
                     return null;
                   }
               }
-            }
+            },
+            Akka.system().dispatcher()
         );
       }
 
@@ -204,7 +206,7 @@ public class Chats extends Controller {
 
   public static Result receiveImage(Long chatId) {
     User user = User.find.byId(session("email"));
-    Chat chat = Chat.find .where() .eq("internalId", chatId) .fetch("items") .findUnique();
+    Chat chat = Chat.find .where() .eq("internalId", chatId) .join("items") .findUnique();
     Form<Image> filledForm = imageForm.bindFromRequest();
     if(filledForm.hasErrors()) {
       return badRequest(filledForm.errors().toString());

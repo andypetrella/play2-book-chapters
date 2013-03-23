@@ -8,6 +8,8 @@ import play.api.data._
 import play.api.libs.json._
 import play.api.libs.ws.WS
 
+import play.api.libs.concurrent.Execution.Implicits._
+
 object Twitter extends Controller {
   val SEARCHURL = "http://search.twitter.com/search.json"
 

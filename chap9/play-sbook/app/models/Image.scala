@@ -121,14 +121,14 @@ object Image {
     }
 
   implicit object ImageFormat extends Format[Image] {
-     def reads (json: JsValue): Image =
-      Image(
+     def reads (json: JsValue): JsResult[Image] =
+      JsSuccess(Image(
         Id((json \ "internalId").as[String].toLong),
         User.load((json \ "user").as[String]).get,
         new LocalTime((json \ "timestamp").as[Long]),
         (json \ "caption").as[String],
         (json \ "filePath").as[String]
-      )
+      ))
 
     def writes (i: Image): JsValue =
       JsObject(Seq(

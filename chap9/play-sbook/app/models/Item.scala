@@ -107,13 +107,13 @@ object Item {
     }
 
   implicit object ItemFormat extends Format[Item] {
-    def reads (json: JsValue): Item =
-      Item(
+    def reads (json: JsValue): JsResult[Item] =
+      JsSuccess(Item(
         Id((json \ "internalId").as[String].toLong),
         User.load((json \ "user").as[String]).get,
         new LocalTime((json \ "timestamp").as[Long]),
         (json \ "message").as[String]
-      )
+      ))
 
     def writes (i: Item): JsValue =
       JsObject(Seq(

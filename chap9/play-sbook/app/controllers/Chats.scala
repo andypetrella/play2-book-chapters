@@ -21,6 +21,8 @@ import models._
 
 import java.util.concurrent.TimeUnit;
 import akka.util._
+import scala.concurrent.duration.Duration;
+import play.api.libs.concurrent.Execution.Implicits._
 
 object Chats extends Controller {
 
@@ -94,8 +96,8 @@ object Chats extends Controller {
     val chatIdsList = ids.split(",").map{_.toLong}
 
     val out = Enumerator.imperative[JsValue](
-      onStart = println("Web Socket started"),
-      onComplete = println("Web Socket stopped"),
+      onStart = () => println("Web Socket started"),
+      onComplete = () => println("Web Socket stopped"),
       onError = (s, i) => println(s)
     )
 
