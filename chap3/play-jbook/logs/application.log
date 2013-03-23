@@ -1,6 +1,95 @@
-2013-01-04 22:00:41,781 - [INFO] - from play in main 
-Listening for HTTP on port 9000...
+2013-03-23 15:21:29,618 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-01-04 22:01:00,606 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2013-03-23 15:21:54,054 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6dlffflom - Internal server error, for (GET) [/] ->
+
+sbt.PlayExceptions$AssetCompilationException: Compilation error[Expected )]
+	at play.core.less.LessCompiler$.compile(LessCompiler.scala:139) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$6.apply(PlayAssetsCompiler.scala:88) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$6.apply(PlayAssetsCompiler.scala:88) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1$$anonfun$3.apply(PlayAssetsCompiler.scala:52) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1$$anonfun$3.apply(PlayAssetsCompiler.scala:48) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:60) ~[scala-library.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library.jar:na]
+	at scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.mutable.ArrayBuffer.flatMap(ArrayBuffer.scala:47) ~[scala-library.jar:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1.apply(PlayAssetsCompiler.scala:48) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1.apply(PlayAssetsCompiler.scala:21) ~[na:na]
+	at sbt.Scoped$$anonfun$hf7$1.apply(Structure.scala:583) ~[na:na]
+	at sbt.Scoped$$anonfun$hf7$1.apply(Structure.scala:583) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:49) ~[scala-library.jar:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:41) ~[na:na]
+	at sbt.std.Transform$$anon$5.work(System.scala:71) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:238) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138) ~[na:1.6.0_43]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138) ~[na:1.6.0_43]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895) [na:1.6.0_43]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918) [na:1.6.0_43]
+	at java.lang.Thread.run(Thread.java:662) [na:1.6.0_43]
+
+2013-03-23 15:21:54,110 - [WARN] - from play in New I/O  worker #1 
+No application found at invoker init
+
+2013-03-23 15:23:04,761 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6dlffka2j - Internal server error, for (GET) [/] ->
+
+sbt.PlayExceptions$AssetCompilationException: Compilation error[Syntax Error on line 13]
+	at play.core.less.LessCompiler$.compile(LessCompiler.scala:139) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$6.apply(PlayAssetsCompiler.scala:88) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$6.apply(PlayAssetsCompiler.scala:88) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1$$anonfun$3.apply(PlayAssetsCompiler.scala:52) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1$$anonfun$3.apply(PlayAssetsCompiler.scala:48) ~[na:na]
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:60) ~[scala-library.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library.jar:na]
+	at scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:239) ~[scala-library.jar:na]
+	at scala.collection.mutable.ArrayBuffer.flatMap(ArrayBuffer.scala:47) ~[scala-library.jar:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1.apply(PlayAssetsCompiler.scala:48) ~[na:na]
+	at sbt.PlayAssetsCompiler$$anonfun$AssetsCompiler$1.apply(PlayAssetsCompiler.scala:21) ~[na:na]
+	at sbt.Scoped$$anonfun$hf7$1.apply(Structure.scala:583) ~[na:na]
+	at sbt.Scoped$$anonfun$hf7$1.apply(Structure.scala:583) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:49) ~[scala-library.jar:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:41) ~[na:na]
+	at sbt.std.Transform$$anon$5.work(System.scala:71) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:238) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138) ~[na:1.6.0_43]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138) ~[na:1.6.0_43]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895) [na:1.6.0_43]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918) [na:1.6.0_43]
+	at java.lang.Thread.run(Thread.java:662) [na:1.6.0_43]
+
+2013-03-23 15:28:17,841 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
