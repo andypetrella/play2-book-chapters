@@ -16,7 +16,7 @@ case class User(
     DB.withTransaction { implicit conn =>                 //5
       (for {
               e <- email.toOption
-              u = User.load(e)                           //6
+              u = User.load(e)                            //6
       } yield {
               u match {
                       case None => create
