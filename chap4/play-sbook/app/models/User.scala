@@ -14,7 +14,7 @@ case class User(
 ) {
   def save =
     DB.withTransaction { implicit conn =>                 //5
-      email.toOption.map { e => User.load(e) } match {    //6
+      email.toOption.flatMap { e => User.load(e) } match {//6
         case None => create
         case _ => update
       }
